@@ -7,21 +7,31 @@ const detectMutation = (chain) => {
     }
     console.log(matrix)
 
+    // Iterate the main diagonals of the matrix and check if there are mutations
+    // If there are mutations, return true and if not return false
     for (let i = 0; i < n; i++) {
-        // let a = 0, c = 0, g = 0, u = 0
-        let conteo = {A: 0, C: 0, G: 0, U: 0}
+        let a = 0, c = 0, g = 0, u = 0
         for (let j = 0; j < n-i; j++) {
-            conteo[matrix[j][i+j]]++
+            switch (matrix[j][i+j]) {
+                case 'A':
+                    a++
+                    break
+                case 'C':
+                    c++
+                    break
+                case 'G':
+                    g++
+                    break
+                case 'U':
+                    u++
+                    break
+            }
         }
-        console.log(conteo.A)
-        console.log(conteo.C)
-        console.log(conteo.G)
-        console.log(conteo.U)
-        if(conteo.A % 2 === 0 && conteo.A > 0 || conteo.C % 2 === 0 && conteo.C > 0 || conteo.G % 2 === 0 && conteo.G > 0 || conteo.U % 2 === 0 && conteo.U > 0) {
+        if((a % 2 === 0 && a > 0) || (c % 2 === 0 && c > 0) || (g % 2 === 0 && g > 0) || (u % 2 === 0 && u > 0)) {
             return true
         }
-        return false
     }
+    return false
 }
 
 const chain = 'AUGAUCUCG';
