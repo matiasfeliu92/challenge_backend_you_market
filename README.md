@@ -25,7 +25,7 @@ npm install
 Finally to execute the project we use the following command:
 
 ```
-npm run dev
+npm start
 ```
 
 ## Routes
