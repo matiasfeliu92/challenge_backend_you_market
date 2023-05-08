@@ -2,7 +2,7 @@ const checkMutation = require("../utils/checkMutation")
 
 class MutationController {
     async verifyMutation(req, res) {
-        const {chain} = req.body   //'AUGAUCUCG'
+        const {chain} = req.body
         const mutation = checkMutation(chain)
         if (mutation) {
             res.status(200).json({message: `the chain ${chain} has mutation`})
